@@ -1,0 +1,113 @@
+body{
+    background-color: antiquewhite;
+    align-self: auto;
+}
+
+.footer{
+    display: flex;
+    background-color: brown;
+    color: aliceblue;
+    padding-top: 20px;
+    margin-top: 200px;
+    padding-bottom:40px ;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+}
+.col1, .col2, .col3{
+    font-size: 25px;
+    margin-left: 23%;
+
+}
+li{
+    list-style-type: none;
+    font-size: 20px;
+}
+#logo{
+    width:70px;
+    margin-left: 10px;
+    float: left;
+    margin-top: 30px;
+}
+.header{
+    background-color: aliceblue;  
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    position:fixed;
+}
+h1{
+    color:rgba(21, 146, 255, 0.922); 
+    text-align: center;
+    padding: 10px;
+}
+main{
+    margin-top: 150px;
+    display:grid;
+    margin-left: 20%;
+}
+.paragraph{
+    color: white;
+    background-color:rgba(21, 146, 255, 0.922) ;
+    font-size: 30px;
+    width: 70%;
+    display: flex;
+    margin-bottom: 5%;
+    border-radius:8px;
+}
+img{
+    width: 50%;
+    border-radius: 4px;
+}
+.nav{
+    /* margin-top: 100px; */
+    background-color: aliceblue;
+    right:30%;
+    text-decoration: none;
+    color:rgba(21, 146, 255, 0.922);
+    width: 100%;
+    margin-left: 20%;
+    display: flex;
+}
+#sign{
+    font-size: 25px;
+    text-decoration: none;
+    float: right;
+    color:rgba(21, 146, 255, 0.922);
+    margin-left: 60%;
+}
+#home,#about{
+    margin-left: 10px;
+    font-size: 25px;
+    text-decoration: none;
+    color:rgba(21, 146, 255, 0.922);
+}
+.form{
+    font-size: large;
+    font-family: sans-serif;
+    margin-top: 150px;
+    margin-left: 40%;
+    color:rgba(21, 146, 255, 0.922) ;
+    width: 40%;
+    /* color: aliceblue; */
+    height:fit-content;    /* display: block; */
+}
+form{
+    margin-left: 20px;
+}
+input{
+    height: 30px;
+    width: 400px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+input[type='submit']{
+    background-color:rgba(21, 146, 255, 0.922) ;
+    color:aliceblue;
+    font-size: 20px;
+    border-style: none;
+    height: 30px;
+    width: 406px;
+}
