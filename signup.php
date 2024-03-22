@@ -18,13 +18,13 @@
         <label for="password">Create Password</label><br>
         <input type="password" name="password" id="password"><br>
 
-        <input type="submit" value="Signup" name="signup" onclick="signin(event)">
+        <input type="submit" value="Signup" name="signup" onclick="signup(event)">
     </form>
     Already a member? Sign in <a href="signin.php">here</a>
 </div>
 
 <script>
-function signin(event) {
+function signup(event) {
     event.preventDefault(); // Prevent form submission
 
     var name = document.getElementById('name').value;
