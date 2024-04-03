@@ -58,10 +58,10 @@ function signin(event) {
             console.log('failure to register user');
         }
     });
-    .catch(error => {
-        console.error('Error registering user:', error);
+    // .catch(error => {
+        // console.error('Error registering user:', error);
         // Handle registration error, e.g., show an error message
-    });
+    // });
 }
 </script>
 
