@@ -18,13 +18,13 @@
         <label for="password">Create Password</label><br>
         <input type="password" name="password" id="password"><br>
 
-        <input type="submit" value="Signup" name="signup" onclick="signup(event)">
+        <input type="submit" value="Signup" name="signup" onclick="signin(event)">
     </form>
     Already a member? Sign in <a href="signin.php">here</a>
 </div>
 
 <script>
-function signup(event) {
+function signin(event) {
     event.preventDefault(); // Prevent form submission
 
     var name = document.getElementById('name').value;
@@ -48,11 +48,16 @@ function signup(event) {
         },
         body: JSON.stringify(data)
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('User registered:', data);
-        // Handle successful registration, e.g., show a success message
-    })
+    // .then(response => response.json())
+    .then(response => {
+        if(response.ok){
+            window.location.href='signin.php';
+            console.log('User registered:', data);
+        
+        }else{
+            console.log('failure to register user');
+        }
+    });
     .catch(error => {
         console.error('Error registering user:', error);
         // Handle registration error, e.g., show an error message
