@@ -1,0 +1,14 @@
+[debug] [2024-04-04T08:17:13.019Z] ----------------------------------------------------------------------
+[debug] [2024-04-04T08:17:13.024Z] Command:       /home/mosey/.nvm/versions/node/v18.18.2/bin/node /home/mosey/.nvm/versions/node/v18.18.2/bin/firebase deploy
+[debug] [2024-04-04T08:17:13.025Z] CLI Version:   13.6.1
+[debug] [2024-04-04T08:17:13.025Z] Platform:      linux
+[debug] [2024-04-04T08:17:13.026Z] Node Version:  v18.18.2
+[debug] [2024-04-04T08:17:13.027Z] Time:          Thu Apr 04 2024 11:17:13 GMT+0300 (East Africa Time)
+[debug] [2024-04-04T08:17:13.027Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-04T08:17:18.154Z] Error: Timed out.
+    at Timeout._onTimeout (/home/mosey/.nvm/versions/node/v18.18.2/lib/node_modules/firebase-tools/lib/utils.js:258:49)
+    at listOnTimeout (node:internal/timers:569:17)
+    at process.processTimers (node:internal/timers:512:7)
+[error] 
+[error] Error: An unexpected error has occurred.

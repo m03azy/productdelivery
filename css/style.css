@@ -12,7 +12,7 @@ body{
     margin-top: 200px;
     padding-bottom:40px ;
     width: 100%;
-    left: 0;
+    /* left: 0; */
     bottom: 0;
     z-index: 1;
 }
@@ -120,8 +120,13 @@ input[type='text'], input[type='password']{
     border-bottom: solid rgba(21, 146, 255, 0.922) 2px;
     background-color: antiquewhite;
 }
+input[type='number']{
+    border-radius: 5px;
+    border-bottom: solid rgba(21, 146, 255, 0.922) 2px;
+    background-color:#dddddd;
+}
 .col-1, #nav {
-    margin-top:4px;
+    /* margin-top:5%; */
     background-color:  rgba(21, 146, 255, 0.922);
     width: 20%;
     height:auto;
@@ -129,7 +134,7 @@ input[type='text'], input[type='password']{
     text-decoration: none;
 }
 .main{
-    margin-top: 5%;
+    margin-top: 7%;
     display: flex;
     width: 100%;
 }
@@ -142,10 +147,21 @@ input[type='text'], input[type='password']{
     font-family: sans-serif;
     margin-left: 20%;
     color:rgba(21, 146, 255, 0.922) ;
-    height:fit-content;     
+    height:fit-content;  
+    display: block;   
+}
+.col-dashboard{
+    margin-top: 5%;
+    display: flex;
 }
 .col{
     margin-top: 5%;
+    /* display: flex; */
+}
+.card{
+    margin-left: 10px;
+    height: 200px;
+    background-color: azure;
 }
 table {
     font-family: arial, sans-serif;
@@ -160,5 +176,19 @@ td, th {
 }
 
 tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#description{
+    height:100px;
+    width: 500px;
+    border: none;
+    font-size: large;
+}
+select{
+    width: 200px;
+    height: 50px;
+}
+.productform{
     background-color: #dddddd;
 }

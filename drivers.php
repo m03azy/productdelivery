@@ -21,6 +21,7 @@
                 <input type="password" name="password" id="password"><br>
 
                 <input type="submit" value="register" name="register" onclick="add(event)">
+                <span id="message"></span>
             </form>
             
             view drivers informations <a href="viewdrivers.php">here</a>
@@ -37,6 +38,10 @@ function add(event) {
     var phone = document.getElementById('phone').value;
     var address = document.getElementById('address').value;
     var password = document.getElementById('password').value;
+
+    if(name =='' && email =='' && phone =="" && address =="" && password ==""){
+        var message =document.getElementById('message').innerHTML="fill both fields"
+    }
 
     const data = {
         name: name,
@@ -59,8 +64,12 @@ function add(event) {
             window.location.href='viewdrivers.php';
             console.log('driver registered:', data);
         
-        }else{
-            console.log('failure to register driver');
+        }else if(response.ok =="false"){
+            console.log(response);
+            
+        }
+        else{
+            console.error(response)
         }
     });
 }
