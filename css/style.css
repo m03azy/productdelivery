@@ -122,7 +122,7 @@ input[type='text'], input[type='password']{
 }
 input[type='number']{
     border-radius: 5px;
-    border-bottom: solid rgba(21, 146, 255, 0.922) 2px;
+    /* border-bottom: solid rgba(21, 146, 255, 0.922) 2px; */
     background-color:#dddddd;
 }
 .col-1, #nav {
@@ -164,6 +164,7 @@ input[type='number']{
     background-color: azure;
 }
 table {
+    color: rgba(21, 146, 255, 0.922);
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
@@ -181,14 +182,17 @@ tr:nth-child(even) {
 
 #description{
     height:100px;
-    width: 500px;
+    width: 400px;
     border: none;
     font-size: large;
 }
 select{
-    width: 200px;
+    width: 400px;
     height: 50px;
+    font-size: medium;
+    background-color:antiquewhite;
+    border-radius: 5px;
 }
 .productform{
-    background-color: #dddddd;
+    /* background-color: #dddddd; */
 }

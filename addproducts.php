@@ -2,44 +2,93 @@
     require "header.php";
     require "navigation.php";
 ?>
-    <h3>add new product</h3>
-
+   
     <div class="productform">
-        <form action="" method="POST">
-            <label for="name">name</label><br>
-            <input type="text"><br>
-            <label for="quantity">quantity</label>
-            <input type="number" name="quantity"><br>
+    <h3>Add New Product</h3>
+    <form action="" method="POST" enctype="multipart/form-data">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name"><br><br>
 
-            <label for="category">category</label>
-            <select id="category" name="category">
-                <option value="food and beverages">food and beverages</option>
-                <option value="electronics">electronics</option>
-                <option value="clothing and apreal">clothing and apreal</option>
-                <option value="home and kitchen">home and kitchen</option>
-                <option value="health and beauty">health and beauty</option>
-                <option value="books and media">books and media</option>
-                <option value="toys and games">toys and games</option>
-                <option value="sports and fitness">sports and fitness</option>
-                <option value="office supplies">office supplies</option>
-                <option value="automotives">automotives</option>
-              
-            </select><br>
-            <label for="image">image</label>
-            <input type='file' id='image' name='image'><br>
-            <label for="description">description</label><br>
-            <textarea name="description" id="description" ></textarea><br>
+        <label for="quantity">Quantity</label><br>
+        <input type="number" id="quantity" name="quantity"><br><br>
 
-            <label for="price">price (€)</label>
-            <input type="number" step=".01"><br>
+        <label for="category">Category</label><br>
+        <select id="category" name="category">
+            <!-- Options for product categories -->
+            <option value="food and beverages">food and beverages</option>
+            <option value="electronics">electronics</option>
+            <option value="clothing and apreal">clothing and apreal</option>
+            <option value="home and kitchen">home and kitchen</option>
+            <option value="health and beauty">health and beauty</option>
+            <option value="books and media">books and media</option>
+            <option value="toys and games">toys and games</option>
+            <option value="sports and fitness">sports and fitness</option>
+            <option value="office supplies">office supplies</option>
+            <option value="automotives">automotives</option>
+        </select><br><br>
 
-            <input type="submit" value="Add Product" name="addproduct">
-        </form>
-    </div>
+        <label for="image">Image</label><br>
+        <input type="file" id="image" name="image" accept="image/*"><br><br>
+
+        <label for="description">Description</label><br>
+        <textarea id="description" name="description"></textarea><br><br>
+
+        <label for="price">Price (€)</label><br>
+        <input type="number" step="0.01" id="price" name="price"><br>
+
+        <input type="submit" value="Add Product" name="addproduct" onclick="addProduct(event)">
+    </form>
+</div>
 
     
 
     </div>
 </div>
+<script>
+    function addProduct(event) {
+        event.preventDefault(); // Prevent form submission
 
+        var name = document.getElementById('name').value;
+        var category = document.getElementById('category').value;
+        var quantity = document.getElementById('quantity').value;
+        var image = document.getElementById('image').files[0];
+        var description = document.getElementById('description').value;
+        var price = document.getElementById('price').value;
+
+        // Form validation
+        if (name == '' || category == '' || quantity == '' || image == '' || description == '' || price == '') {
+            alert("Please fill out all fields");
+            return false;
+        }
+
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('category', category);
+        formData.append('quantity', quantity);
+        formData.append('image', image);
+        formData.append('description', description);
+        formData.append('price', price);
+
+        fetch('http://localhost/storeApi/products', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Product registered:', formData);
+                return response.json();
+            } else {
+                throw new Error('Failed to register product');
+            }
+        })
+        .then(data => {
+            console.log(data);
+            // Handle success response here
+        })
+        .catch(error => {
+            console.error('Error registering product:', error);
+        });
+    }
+
+</script>
 <?php require "footer.php"?>
