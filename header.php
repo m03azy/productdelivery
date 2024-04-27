@@ -4,7 +4,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="canonical" href="images/logo.png">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/user.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
         <title>Delivery</title>
     </head>
     <body>
@@ -19,7 +21,14 @@
                 
                     <li > <a href="#" id="about">about us</a></li>
                     <li ><a href="#" id="home">home</a></li>
-                    <a href="signin.php" id="sign">Sign In</a>
+                    <?php
+                        if(isset($_SESSION['email'])){
+                            echo $_SESSION['name'];
+                        }else{
+                            echo " <a href='signin.php' id='sign'>Sign In</a>";
+                        }
+                   
+                    ?>
                 </div>
             </div>
         </header>

@@ -66,7 +66,6 @@ function add(event) {
         
         }else if(response.ok =="false"){
             console.log(response);
-            
         }
         else{
             console.error(response)

@@ -5,7 +5,7 @@
    
     <div class="productform">
     <h3>Add New Product</h3>
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data" >
         <label for="name">Name</label><br>
         <input type="text" id="name" name="name"><br><br>
 
@@ -36,17 +36,16 @@
         <label for="price">Price (€)</label><br>
         <input type="number" step="0.01" id="price" name="price"><br>
 
-        <input type="submit" value="Add Product" name="addproduct" onclick="addProduct(event)">
+        <input type="submit" value="Add Product" name="addproduct" onclick="addProduct()" >
     </form>
 </div>
-
-    
 
     </div>
 </div>
 <script>
-    function addProduct(event) {
-        event.preventDefault(); // Prevent form submission
+
+    function addProduct() {
+        event.preventDefault();
 
         var name = document.getElementById('name').value;
         var category = document.getElementById('category').value;
@@ -54,12 +53,6 @@
         var image = document.getElementById('image').files[0];
         var description = document.getElementById('description').value;
         var price = document.getElementById('price').value;
-
-        // Form validation
-        if (name == '' || category == '' || quantity == '' || image == '' || description == '' || price == '') {
-            alert("Please fill out all fields");
-            return false;
-        }
 
         const formData = new FormData();
         formData.append('name', name);
@@ -71,24 +64,26 @@
 
         fetch('http://localhost/storeApi/products', {
             method: 'POST',
-            body: formData,
+            headers:{'Contetnt-type':'multipart/form-data'},
+            body:formData
+           
         })
-        .then(response => {
-            if (response.ok) {
-                console.log('Product registered:', formData);
-                return response.json();
-            } else {
-                throw new Error('Failed to register product');
-            }
-        })
-        .then(data => {
-            console.log(data);
-            // Handle success response here
-        })
-        .catch(error => {
-            console.error('Error registering product:', error);
-        });
-    }
 
+        .then(response => {
+            if(response.ok){
+                
+                console.log('product registered:');
+                window.location("products.php");
+            
+            }else if(response.ok =="false"){
+                console.log(formData)
+                console.log(response);
+            }
+            else{
+                console.error(response)
+            }
+        });
+          
+    } 
 </script>
 <?php require "footer.php"?>

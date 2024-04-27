@@ -162,6 +162,7 @@ input[type='number']{
     margin-left: 10px;
     height: 200px;
     background-color: azure;
+    border-radius: 6px;
 }
 table {
     color: rgba(21, 146, 255, 0.922);
@@ -195,4 +196,7 @@ select{
 }
 .productform{
     /* background-color: #dddddd; */
+}
+#submit{
+    width: auto;
 }
