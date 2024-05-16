@@ -41,6 +41,7 @@
 
     <script>
         $(document).ready(function() {
+            //for total users
             $.get('http://localhost/storeApi/totalusers', function(response) {
                 // console.log(response.data);
                 let totalusers = response.data[0]['total_users'];
@@ -49,6 +50,7 @@
                 var display = document.getElementById( "totalUsers" ).innerHTML= totalusers;
                 var today = document.getElementById('newUsers').innerHTML=todayusers;
             })
+            // for total drivers
             $.get('http://localhost/storeApi/totaldrivers', function(response) {
                 // console.log(response.data);
                 let totaldrivers = response.data[0]['total_drivers'];
@@ -61,7 +63,19 @@
             .fail(function(error) {
                 console.error('Error fetching drivers:', error);
             });
-
+            // for total products
+            $.get('http://localhost/storeApi/totalproducts', function(response) {
+                // console.log(response.data);
+                let totalproducts = response.data[0]['total_products'];
+                let todayproducts = response.data[1]['today_products'];
+                console.log(totalproducts)
+                var display = document.getElementById( "totalProducts" ).innerHTML= totalproducts;
+                var today = document.getElementById('newProducts').innerHTML=todayproducts;
+            })
+            
+            .fail(function(error) {
+                console.error('Error fetching drivers:', error);
+            });
 
         });
     </script>

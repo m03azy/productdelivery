@@ -17,6 +17,7 @@
 
         <label for="password">Create Password</label><br>
         <input type="password" name="password" id="password"><br>
+        
 
         <input type="submit" value="Signup" name="signup" onclick="signin(event)">
     </form>
@@ -55,6 +56,7 @@ function signin(event) {
             console.log('User registered:', data);
         
         }else{
+
             console.log('failure to register user');
         }
     });

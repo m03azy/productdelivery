@@ -36,7 +36,9 @@
                         <td>${driver.name}</td>
                         <td>${driver.email}</td>
                         <td>${driver.address}</td>
-                        <td><button onclick=editDriver(${driver.id})>Edit</button> <button onclick=deleteDriver(${driver.id})>delete</button>
+                        <td>
+                            <button onclick=editDriver(${driver.id})>Edit</button> 
+                            <button onclick=deleteDriver(${driver.id})>delete</button>
                         </td>
                     </tr>`;
                 $('#row').append(row);

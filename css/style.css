@@ -1,7 +1,8 @@
 body{
     background-color: antiquewhite;
+    /* background-color: ivory; */
     align-self: auto;
-    color: white;
+    /* color:rgba(21, 146, 255, 0.922); */
 }
 
 .footer{
@@ -61,6 +62,7 @@ main{
 img{
     width: 50%;
     border-radius: 4px;
+
 }
 .nav{
     /* margin-top: 100px; */
@@ -145,7 +147,7 @@ input[type='number']{
 .col-2{
     font-size: large;
     font-family: sans-serif;
-    margin-left: 20%;
+    margin-left: 5%;
     color:rgba(21, 146, 255, 0.922) ;
     height:fit-content;  
     display: block;   
@@ -160,7 +162,6 @@ input[type='number']{
 }
 .card{
     margin-left: 10px;
-    height: 200px;
     background-color: azure;
     border-radius: 6px;
 }
@@ -194,9 +195,50 @@ select{
     background-color:antiquewhite;
     border-radius: 5px;
 }
-.productform{
-    /* background-color: #dddddd; */
+button{
+    color: whitesmoke;
+    background-color: rgba(21, 146, 255, 0.922);
+    border: none;
+    /* width: 80px; */
+    height: 25px;
+    border-radius: 4px;
+    font-size: 15px;
+}
+.show{
+    margin-top: 10%;
+    color:  rgba(21, 146, 255, 0.922);
 }
 #submit{
     width: auto;
+}
+#td-image{
+    width: 100px;
+}
+.prodcard{
+    border-radius:8px ;
+    background-color: #dddddd;
+    width: 400px;
+    color: green;
+    margin: 55px 30px 40px;
+}
+.showProduct{
+    display: flex;
+    column-count: 5;
+    flex-wrap: wrap;
+}
+#prodImage{
+    margin-left:20px;
+    width: 200px
+}
+#productinfo{
+    width: 100%;
+}
+order-form {
+    color:  rgba(21, 146, 255, 0.922);
+
+}
+.product{
+    margin-top:10%;
+    margin-left: 40%;
+    display: flex;
 }
