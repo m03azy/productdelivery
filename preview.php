@@ -1,74 +1,88 @@
 <?php require "header.php"; ?>
 <div class="product">
     <div class="details">
-    <!-- HTML to display product details -->
-        <h2 id="productName" style="color: rgba(21, 146, 255, 0.922)"></h2>
-        <img id='imageUrl' src="" alt="">
-        <p id="productDescription" style="color: rgba(21, 146, 255, 0.922)"></p>
-        <div class="showProduct" id='showProduct'></div>
-        available:<div class="stock" id='stock'></div>
-        price:<div class="price" id='price'></div>
-       
-        <!-- Order button -->
-        <!-- <button id="orderButton">Order Now</button> -->
-        <!-- <div id="showproduct"></div> -->
-
-    </div>
-    <div class="order-form">
-        <form action="">
-            <!-- <div class="form"> -->
-                <label for="email">email</label><br>
-                <input type="email" name="email" id="email"><br>
-
-                <label for="name">name</label><br>
-                <input type="text" name="name" id="name"><br>
-
-                <label for="quantity">quantity</label><br>
-                <input type="number" name="quantity" id="quantity"><br>
-
-                <label for="address">address</label><br>
-                <input type="text" name="address" id="address"><br>
-                <button id="orderButton">Order Now</button>
-            <!-- </div> -->
-           
-        </form>
-    </div>
+    <?= $_SESSION['name'];?>
+    <?= $_SESSION['user_id'];?>
+    <h2 id="productName"></h2>
+    <img id="productImage" alt="Product Image" />
+    <p id="productDescription"></p>
+    <p id="productPrice"></p>
+    <form id="orderForm" onsubmit="placeOrder(event)">
+        <input type="hidden" id="productId" name="product_id" />
+        <input type="hidden" id="productPriceValue" name="price" />
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required /><br>
+        <button type="submit">Order Now</button>
+    </form>
 </div>
+
+</div>
+
 <script>
-    // Extract query parameters from URL
-    const params = new URLSearchParams(window.location.search);
-    const productName = params.get('name');
-    const productDescription = params.get('description');
-    const imageUrl = params.get('image_Url')
-    const stock = params.get('stock')
-    const price = params.get('price')
+    function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            productId: params.get('product_id'),
+            name: params.get('name'),
+            description: params.get('description'),
+            imageUrl: params.get('image_url'),
+            price: params.get('price')
+            
+        };
+    }
+   
 
-    // Display product details
-    document.getElementById('productName').textContent = productName;
-    document.getElementById('productDescription').textContent = productDescription;
-    document.getElementById('imageUrl').textContent = imageUrl;
-    document.getElementById('stock').textContent = stock;
-    document.getElementById('price').textContent = price;
+    function displayProductDetails() {
+        const { productId, name, description, imageUrl, price } = getQueryParams();
+        document.getElementById('productName').textContent = name;
+        document.getElementById('productDescription').textContent = description;
+        document.getElementById('productImage').src = imageUrl;
+        document.getElementById('productPrice').textContent = `$${price}`;
+        document.getElementById('productId').value = productId;
+        document.getElementById('productPriceValue').value = price;
 
-    // Handle order button click
-    document.getElementById('orderButton').addEventListener('click', function(event) {
-        event.preventDefault()
-    // Add your order handling logic here
-        var name=document.getElementById('name').value
-        var email=document.getElementById('email').value
-        var quantity=document.getElementById('quantity').value
-        var address=document.getElementById('address').value
+    }
 
-        // if(name && email && quantity && address !== ""){
-        //     $(document).ready(function(){
-        //         $.post()
-        //     })
-        // }
-      
-        alert(`Order placed for ${product.name}`);
-    });
+    document.addEventListener('DOMContentLoaded', displayProductDetails);
 
-    // view selected product details
+    async function placeOrder(event) {
+        event.preventDefault();
+        const userId = "<?=$_SESSION['user_id'];?>"; // Replace with the actual user ID from your authentication system
+        const productId = document.getElementById('productId').value;
+        const quantity = document.getElementById('quantity').value;
+        const price = document.getElementById('productPriceValue').value;
 
+        // console.log(productId)
+
+        const orderData = {
+            user_id: userId,
+            order_items: [{
+                product_id: productId,
+                quantity: quantity,
+                price: price
+            }]
+        };
+
+        try {
+            const response = await fetch('http://localhost/storeApi/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(orderData)
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                alert('Order placed successfully!');
+            } else {
+                alert('Failed to place order: ' + data.message);
+            }
+        } catch (error) {
+            console.error('Error placing order:', error);
+        }
+    }
 </script>
+
+
 <?php require "footer.php" ?>

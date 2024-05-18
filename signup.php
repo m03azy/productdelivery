@@ -2,7 +2,7 @@
 
 <div class="form">
     <h2>Sign up</h2>
-    <form action="" method="POST" id="signupForm">
+    <form action="" method="POST" id="signup-form">
         <label for="name">Name</label><br>
         <input type="text" name="name" id="name"><br>
         
@@ -19,14 +19,14 @@
         <input type="password" name="password" id="password"><br>
         
 
-        <input type="submit" value="Signup" name="signup" onclick="signin(event)">
+        <input type="submit" value="Signup" name="signup">
     </form>
     Already a member? Sign in <a href="signin.php">here</a>
 </div>
 
 <script>
-function signin(event) {
-    event.preventDefault(); // Prevent form submission
+document.getElementById('signup-form').addEventListener('submit', function(event) {
+    event.preventDefault();
 
     var name = document.getElementById('name').value;
     var email = document.getElementById('email').value;
@@ -49,22 +49,16 @@ function signin(event) {
         },
         body: JSON.stringify(data)
     })
-    // .then(response => response.json())
-    .then(response => {
+   .then(response => {
         if(response.ok){
             window.location.href='signin.php';
             console.log('User registered:', data);
-        
-        }else{
-
-            console.log('failure to register user');
+        } else {
+            console.log('Failure to register user');
         }
-    });
-    // .catch(error => {
-        // console.error('Error registering user:', error);
-        // Handle registration error, e.g., show an error message
-    // });
-}
+    })
+   .catch(error => console.error('Error:', error));
+});
 </script>
 
 <?php require "footer.php"; ?>

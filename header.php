@@ -7,6 +7,37 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/user.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('logout').addEventListener('click', logout);
+            });
+
+            function logout() {
+                fetch('http://localhost/storeApi/logout.php', {
+                    method: 'POST',
+                    credentials: 'include' // Include credentials for session-based auth
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 200) {
+                        // Clear local storage or cookies where the token is stored
+                        localStorage.removeItem('token');
+                        // alert(data.message);
+                        // Redirect to login page or home page
+                        window.location.href = 'index.php';
+                    } else {
+                        alert('Failed to log out');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error logging out:', error);
+                });
+            }
+
+            // Call the function to log out
+            logout();
+
+        </script> -->
         <title>Product Delivery</title>
     </head>
     <body>
@@ -22,8 +53,10 @@
                     <li > <a href="#" id="about">about us</a></li>
                     <li ><a href="#" id="home">home</a></li>
                     <?php
-                        if(isset($_SESSION['email'])){
+                    session_start();
+                        if($_SESSION['user_id'] !== ""){
                             echo $_SESSION['name'];
+                            echo " <button id='logout'>logout</button>";
                         }else{
                             echo " <a href='signin.php' id='sign'>Sign In</a>";
                         }

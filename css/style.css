@@ -81,6 +81,14 @@ img{
     color:rgba(21, 146, 255, 0.922);
     margin-left: 60%;
 }
+#logout{
+    font-size: 25px;
+    text-decoration: none;
+    float: right;
+    color: rgba(21, 146, 255, 0.922);
+    /* background-color: aliceblue; */
+    margin-left: 60%;
+}
 #home,#about{
     margin-left: 10px;
     font-size: 25px;

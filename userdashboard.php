@@ -43,7 +43,7 @@
                                     <p class="card-text" id='description'>${product.description}</p>
                                     <p class="card-text" id='quantity'>available: ${product.stock_quantity}</p>
                                     <p class="card-text" id='quantity'>price: ${product.price}</p>
-                                    <button  class="order-btn" onclick="orderProduct('${product.name}', '${product.description}','${product.image_url}',${product.price},${product.stock_quantity})">         
+                                    <button  class="order-btn" onclick="orderProduct('${product.name}', '${product.description}','${product.image_url}',${product.price},${product.stock_quantity},${product.product_id})">         
                                 </div>
                             `;
                             $('#showProduct').append(card);
@@ -69,11 +69,13 @@
                                 <p class="card-text" id='description'>${product.description}</p>
                                 <p class="card-text" id='quantity'>available: ${product.stock_quantity}</p>
                                 <p class="card-text" id='quantity'>price: ${product.price}</p>
-                                <button  class="order-btn" onclick="orderProduct('${product.name}', '${product.description}','${product.image_url}',${product.price},${product.stock_quantity})">
+                                <button  class="order-btn" onclick="orderProduct('${product.name}', '${product.description}','${product.image_url}',${product.price},${product.stock_quantity},${product.product_id})">
                                 View More
                                 </button>
                             </div>
                         `;
+
+                        
                         $('#showProduct').append(card);
                     });
                 }).fail(function(error) {
@@ -84,16 +86,18 @@
             });
 
 
-            function orderProduct(name, description, image_url,price,stock_quantity) {
+            function orderProduct(name, description, image_url,price,stock_quantity,product_id) {
                 console.log(name)
                 console.log(description)
                 console.log(image_url)
+                console.log(product_id)
                 window.location.href = `preview.php?
                 name=${encodeURIComponent(name)}
                 &description=${encodeURIComponent(description)}
                 &image_url=${encodeURIComponent(image_url)}
                 &stock=${encodeURIComponent(stock_quantity)}
-                &price=${encodeURIComponent(price)}`;
+                &price=${encodeURIComponent(price)}
+                &price=${encodeURIComponent(product_id)}`;
             }
 
         </script>
