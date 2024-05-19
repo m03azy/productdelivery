@@ -54,9 +54,9 @@
                     <li ><a href="#" id="home">home</a></li>
                     <?php
                     session_start();
-                        if($_SESSION['user_id'] !== ""){
+                        if(isset($_SESSION['use_id'])){
                             echo $_SESSION['name'];
-                            echo " <button id='logout'>logout</button>";
+                            echo " <button id='sign'>logout</button>";
                         }else{
                             echo " <a href='signin.php' id='sign'>Sign In</a>";
                         }

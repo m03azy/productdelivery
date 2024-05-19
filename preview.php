@@ -2,7 +2,6 @@
 <div class="product">
     <div class="details">
     <?= $_SESSION['name'];?>
-    <?= $_SESSION['user_id'];?>
     <h2 id="productName"></h2>
     <img id="productImage" alt="Product Image" />
     <p id="productDescription"></p>
@@ -40,19 +39,17 @@
         document.getElementById('productPrice').textContent = `$${price}`;
         document.getElementById('productId').value = productId;
         document.getElementById('productPriceValue').value = price;
-
     }
 
     document.addEventListener('DOMContentLoaded', displayProductDetails);
 
     async function placeOrder(event) {
         event.preventDefault();
-        const userId = "<?=$_SESSION['user_id'];?>"; // Replace with the actual user ID from your authentication system
+        const userId = "<?=$_SESSION['user_id'];?>"; //user_id from API database
         const productId = document.getElementById('productId').value;
         const quantity = document.getElementById('quantity').value;
         const price = document.getElementById('productPriceValue').value;
 
-        // console.log(productId)
 
         const orderData = {
             user_id: userId,

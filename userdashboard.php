@@ -97,7 +97,7 @@
                 &image_url=${encodeURIComponent(image_url)}
                 &stock=${encodeURIComponent(stock_quantity)}
                 &price=${encodeURIComponent(price)}
-                &price=${encodeURIComponent(product_id)}`;
+                &product_id=${encodeURIComponent(product_id)}`;
             }
 
         </script>

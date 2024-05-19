@@ -77,6 +77,19 @@
                 console.error('Error fetching drivers:', error);
             });
 
+            $.get('http://localhost/storeApi/totalorders', function(response) {
+                // console.log(response.data);
+                let totalorders = response.data[0]['total_orders'];
+                let todayorders = response.data[1]['today_orders'];
+                console.log(totalorders)
+                var display = document.getElementById( "totalOrders" ).innerHTML= totalorders;
+                var today = document.getElementById('newOrders').innerHTML=todayorders;
+            })
+            
+            .fail(function(error) {
+                console.error('Error fetching orders:', error);
+            });
+
         });
     </script>
 </div>
