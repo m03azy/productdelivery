@@ -1,6 +1,9 @@
 <?php 
     require "header.php";
     require "navigation.php";
+    if(!isset($_SESSION['email'])){
+        header("location:signin.php");
+    }
 ?>
     <p> add new <a href="addproducts.php">product</a></p>
     <div class="showProduct" id='showProduct'>

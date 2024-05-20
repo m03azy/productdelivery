@@ -74,8 +74,9 @@ img{
     margin-left: 20%;
     display: flex;
 }
-#sign{
+#sign,.sign{
     font-size: 25px;
+    position: fixed;
     text-decoration: none;
     float: right;
     color:rgba(21, 146, 255, 0.922);

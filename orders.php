@@ -1,6 +1,10 @@
 <?php 
     require "header.php";
     require "navigation.php";
+
+    if(!isset($_SESSION['email'])){
+        header("location:signin.php");
+    }
 ?>
         <div class='col1'>
             <div class="form">

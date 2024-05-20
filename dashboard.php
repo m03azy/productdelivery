@@ -1,7 +1,13 @@
 <?php
- require "header.php"; 
- require "navigation.php";
+    require "header.php"; 
+    require "navigation.php";
+
+    if(!isset($_SESSION['email'])){
+        header("location:signin.php");
+    }
+    
  ?>
+ 
      <div class="col-dashboard">
        <div class="card">
             <h1>users</h1>

@@ -1,4 +1,10 @@
-<?php require "header.php"; ?>
+<?php 
+    require "header.php"; 
+
+    if(!isset($_SESSION['email'])){
+        header("location:signin.php");
+    }
+?>
 <div class="product">
     <div class="details">
     <?= $_SESSION['name'];?>
