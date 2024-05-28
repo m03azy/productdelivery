@@ -80,7 +80,7 @@
             })
             
             .fail(function(error) {
-                console.error('Error fetching drivers:', error);
+                console.error('Error fetching products:', error);
             });
 
             $.get('http://localhost/storeApi/totalorders', function(response) {

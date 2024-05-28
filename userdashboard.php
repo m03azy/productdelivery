@@ -49,7 +49,7 @@
                                     <p class="card-text" id='description'>${product.description}</p>
                                     <p class="card-text" id='quantity'>available: ${product.stock_quantity}</p>
                                     <p class="card-text" id='quantity'>price: ${product.price}</p>
-                                    <button  class="order-btn" onclick="orderProduct('${product.name}', '${product.description}','${product.image_url}',${product.price},${product.stock_quantity},${product.product_id})">         
+                                    <button  class="order-btn" onclick="orderProduct('${product.name}', '${product.description}','${product.image_url}',${product.price},${product.stock_quantity},${product.product_id})">view more</button>         
                                 </div>
                             `;
                             $('#showProduct').append(card);
